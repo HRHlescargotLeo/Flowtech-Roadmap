@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sector — Flowtech prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Sector template · idea 25</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A sector page brings together everything Flowtech does for one industry: the problems it solves, the services and product ranges that apply, case studies and recent news. Shown here with data centres. Bridges, waterways and flood defence is the most complete, because Flowtech already has named projects to point at.</p></div>
+          <div><h2>Why</h2><p>Flowtech exhibited at Data Centre World London 2026 and names data centres as a target sector, but a data centre engineer arriving at the site finds no page about their world. The same goes for defence and for bridges, where Tower Bridge, Narrow Water Bridge and Rice Bridge are mentioned only in news stories and a sentence on Projects.</p></div>
+        </div>
+        <p class="proposal-foot">Text in [brackets] is a placeholder for Flowtech to supply. We've only used facts from the live site.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="sector">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li><a href="~/pages/services.html">Engineering services</a></li><li id="sec-crumb">Sector</li></ol>
+        <div class="row between">
+          <h1 id="sec-name">Sector</h1>
+          <form id="sec-switch-form" class="row"><label for="sec-switch" class="small">Prototype: show another sector</label><select id="sec-switch"></select><button type="submit" class="btn btn-sm btn-secondary">Show</button></form>
+        </div>
+        <p class="lead" id="sec-intro"></p>
+        <div class="row"><a class="btn" href="~/pages/request-a-quote.html">Talk to a specialist</a><a class="btn btn-secondary" href="~/pages/case-studies.html">Case studies</a></div>
+      </div>
+      <div class="wf-placeholder ratio-16-9" style="max-height:320px">Sector photograph</div>
+
+      <div class="split" style="margin-top:2rem">
+        <div>
+          <!-- Needs (R42) -->
+          <section aria-labelledby="need-title">
+            <h2 id="need-title" class="section-title">What we do for this sector</h2>
+            <ul class="tick-list" id="sec-needs"></ul>
+          </section>
+          <section aria-labelledby="ss-title">
+            <h2 id="ss-title" class="section-title">Services</h2>
+            <div class="svc-grid" id="sec-services"></div>
+          </section>
+          <section aria-labelledby="sc-title">
+            <h2 id="sc-title" class="section-title">Case studies</h2>
+            <div class="case-grid" id="sec-cases"></div>
+          </section>
+        </div>
+        <aside class="side-panel">
+          <div class="panel"><h2 class="h4">Product ranges</h2><ul class="tick-list" id="sec-cats"></ul></div>
+          <div class="panel surface" id="sec-news"><p class="wf-meta">Latest news</p><h3 class="h4">News</h3><p></p><a href="#">Read the story</a></div>
+          <div class="panel"><h2 class="h4">Accreditations</h2><div class="trust-row"><span class="wf-placeholder">Logo</span><span class="wf-placeholder">Logo</span><span class="wf-placeholder">Logo</span></div></div>
+          <p class="wf-note query" data-note="1"><span class="wf-note-label">Question for Flowtech</span>Which data centre and defence projects can be named publicly? A sector page without a case study is much weaker.</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case studies — Flowtech prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Case study library · idea 26</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>One place for every project Flowtech can talk about, filterable by sector and region, each written the same way: challenge, solution, result, and the service behind it. Sector and service pages pull from the same library, so a case study is written once and appears wherever it's relevant.</p></div>
+          <div><h2>Why</h2><p>/case-studies returns a 404. Halley VI has a good case study page, but the only link to it we found is a homepage carousel slide. Projects mentions Tower Bridge and Halley VI in a sentence and links to neither, and the Knowledge Hub's "Case Studies" link takes you back to Projects. Flowtech has better stories than most of its competitors and is hiding them.</p></div>
+        </div>
+        <p class="proposal-foot">Halley VI is summarised from the live case study. The others are real projects from Flowtech's news, with details left as [placeholders].</p>
+      </div>
+    </aside>
+
+    <div class="container">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li><a href="~/pages/services.html">Engineering services</a></li><li>Case studies</li></ol>
+        <h1>Case studies</h1>
+        <p class="lead">From Antarctic research stations to moving bridges: projects our engineers have designed, built and maintained.</p>
+      </div>
+
+      <!-- Filters (R43) -->
+      <div class="chips-row" id="case-f-sector" role="group" aria-label="Filter by sector"></div>
+      <div class="chips-row" id="case-f-region" role="group" aria-label="Filter by region"></div>
+      <p class="result-count" id="case-count" aria-live="polite"></p>
+      <div class="case-grid" id="case-grid"></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Each card opens the case study. In the build these are full pages with their own address; the overlay keeps the prototype to one page.</p>
+    </div>
+
+    <div class="wf-modal" id="case-modal">
+      <div class="wf-modal-panel wide" role="dialog" aria-modal="true" aria-labelledby="cm-title">
+        <button type="button" class="wf-modal-close" aria-label="Close">×</button>
+        <p class="wf-meta" id="cm-meta"></p>
+        <h2 id="cm-title">Case study</h2>
+        <div class="wf-placeholder ratio-16-9">Project photograph</div>
+        <h3 style="margin-top:1rem">Challenge</h3><p id="cm-challenge"></p>
+        <h3>Solution</h3><p id="cm-solution"></p>
+        <h3>Result</h3><p id="cm-result"></p>
+        <p><a class="btn btn-secondary" id="cm-service" href="~/pages/service.html">About this service</a></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

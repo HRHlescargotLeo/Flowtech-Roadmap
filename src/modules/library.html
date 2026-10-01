@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module library — Flowtech prototypes</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main">
+    <div class="container">
+      <h1>Module library</h1>
+      <p class="lead">The new components used across the five prototypes, each shown once with the requirement it serves. Pages are composed from these.</p>
+
+      <!-- Product card (R13) -->
+      <section aria-labelledby="m1"><h2 id="m1" class="section-title">Product card <span class="wf-req">R13</span></h2>
+        <div class="p-grid" style="max-width:340px;grid-template-columns:1fr">
+          <article class="p-card">
+            <div class="wf-placeholder ratio-4-3">Product image</div>
+            <p class="p-brand">FT Pro</p>
+            <h3><a href="~/pages/product.html?code=2019-8412">FT Pro 8MM OD Equal Tee</a></h3>
+            <p class="p-code">Code <b>2019-8412</b></p>
+            <p class="p-chips"><span class="spec-chip">8mm OD</span><span class="spec-chip">Tee</span><span class="spec-chip">10 bar</span></p>
+            <p class="p-price"><span class="price-now">£1.15</span> <span class="price-vat">exc VAT</span></p>
+            <span class="stock in">In stock: 38,006</span>
+            <form class="add-row" data-add="2019-8412"><label class="visually-hidden" for="lib-q">Quantity</label><input type="number" min="1" value="1" id="lib-q"><button class="btn" type="submit">Add</button></form>
+          </article>
+        </div>
+      </section>
+
+      <!-- Facet group (R10, R11) -->
+      <section aria-labelledby="m2"><h2 id="m2" class="section-title">Filter group with counts <span class="wf-req">R10, R11</span></h2>
+        <div style="max-width:260px">
+          <fieldset class="facet"><legend>Availability</legend>
+            <label class="check" for="lib-a1"><input type="radio" name="lib-a" id="lib-a1" checked> Any availability <span class="count">28</span></label>
+            <label class="check" for="lib-a2"><input type="radio" name="lib-a" id="lib-a2"> In stock now <span class="count">26</span></label>
+            <label class="check" for="lib-a3"><input type="radio" name="lib-a" id="lib-a3"> Available to order <span class="count">2</span></label>
+          </fieldset>
+          <fieldset class="facet"><legend>Tube OD (mm)</legend>
+            <label class="check" for="lib-o1"><input type="checkbox" id="lib-o1"> 6mm <span class="count">9</span></label>
+            <label class="check" for="lib-o2"><input type="checkbox" id="lib-o2" checked> 8mm <span class="count">11</span></label>
+          </fieldset>
+        </div>
+      </section>
+
+      <!-- Finder option (R14) -->
+      <section aria-labelledby="m3"><h2 id="m3" class="section-title">Finder options <span class="wf-req">R14</span></h2>
+        <div class="option-grid" style="max-width:520px"><button type="button" class="opt-btn" aria-pressed="false"><b>6mm</b><span>9 products</span></button><button type="button" class="opt-btn" aria-pressed="true"><b>8mm</b><span>11 products</span></button><button type="button" class="opt-btn" aria-pressed="false"><b>10mm</b><span>5 products</span></button></div>
+      </section>
+
+      <!-- Delivery checker (R22) -->
+      <section aria-labelledby="m4"><h2 id="m4" class="section-title">Delivery date checker <span class="wf-req">R22</span></h2>
+        <div class="delivery-box" style="max-width:420px">
+          <div class="delivery-form"><div class="field"><label for="lib-pc">When will it arrive?</label><input type="text" id="lib-pc" value="GL2 5JY"></div><button type="button" class="btn btn-secondary">Check date</button></div>
+          <div class="delivery-result"><p class="d-date">Arrives <b>[Friday 2 October]</b> to GL2 5JY</p><p>Order in the next 4h 10m for despatch today.</p></div>
+        </div>
+      </section>
+
+      <!-- Fits with (R26) -->
+      <section aria-labelledby="m5"><h2 id="m5" class="section-title">Fits-with item <span class="wf-req">R26</span></h2>
+        <div class="fits-grid" style="max-width:340px"><label class="fit-item" for="lib-fit"><input type="checkbox" id="lib-fit"><span class="wf-placeholder ratio-1-1">Image</span><span class="fit-body"><b>FT Pro 8MM OD Polyurethane Tube, Blue, 30M Reel</b><span>FT-PU08-30B · £28.90 exc VAT · 30m reel</span><span class="why-fit">Tube to suit 8mm push-in fittings</span></span></label></div>
+      </section>
+
+      <!-- Service and case cards (R40, R43) -->
+      <section aria-labelledby="m6"><h2 id="m6" class="section-title">Service card and case study card <span class="wf-req">R40, R43</span></h2>
+        <div class="grid grid-2">
+          <article class="svc-card"><h3><a href="~/pages/service.html?id=repair-overhaul">Repair &amp; overhaul</a></h3><p>Strip, inspect, repair and test hydraulic cylinders, pumps, motors and valves.</p><p class="wf-meta">Offered at 12 sites</p></article>
+          <article class="case-card"><div class="wf-placeholder ratio-16-9">Project photo</div><div class="case-body"><p class="wf-meta">Research · Antarctic</p><h3><a href="~/pages/case-studies.html?case=halley-vi">Halley VI research station</a></h3><p>Hydraulic legs that let a research station be raised above the snow and moved.</p></div></article>
+        </div>
+      </section>
+
+      <!-- Branch card (R50–R55) -->
+      <section aria-labelledby="m7"><h2 id="m7" class="section-title">Branch card <span class="wf-req">R53, R55</span></h2>
+        <ul class="branch-list" style="max-width:460px"><li class="branch-card"><div class="row between"><h3><a href="~/pages/branch.html?id=bradford-thorite">Bradford</a></h3><span class="dist">9 miles</span></div><p class="wf-meta">Thorite, part of Flowtech · UK</p><p class="hours">Open now, 8am to 5pm today [sample]</p><ul class="cap-list"><li>Compressed air</li><li>Click &amp; collect</li><li>Training</li></ul><div class="row"><button type="button" class="btn btn-sm btn-secondary">Set as my branch</button></div></li></ul>
+      </section>
+
+      <!-- Annotations -->
+      <section aria-labelledby="m8"><h2 id="m8" class="section-title">Annotations</h2>
+        <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Yellow notes describe behaviour a screenshot can't show.</p>
+        <p class="wf-note query" data-note="2"><span class="wf-note-label">Question for Flowtech</span>Red notes are open questions for Flowtech.</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

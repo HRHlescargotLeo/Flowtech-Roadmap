@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a branch — Flowtech prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 5 of 5 · Find your nearest Flowtech · ideas 15, 31, 32 and 34–36</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A branch finder for all 26 sites across the UK, Ireland and the Benelux, including the Thorite, Allswage and Thomas Group branches: search by postcode or town, filter by what each site does (hose assembly, repairs, click and collect, training), see who's open now, and set a site as "my branch". That choice then follows the buyer around the site, showing local stock on product pages and routing service enquiries.</p></div>
+          <div><h2>Why</h2><p>The network is one of Flowtech's real advantages and the website barely shows it. Contact lists 25 locations in an accordion with no map or search, and leaves out Leicester, which the Locations page includes. Collection is described as "from our distribution centre", while Thorite's own site already offers click and collect from its branches. With five acquisitions in 18 months, a single finder is also the simplest way to show the group as one business.</p></div>
+        </div>
+        <p class="proposal-foot">Towns and group brands follow the live Contact and Locations pages. Only County Durham's address and phone are real; capabilities, hours and the map positions are samples.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="branches">
+      <div class="page-intro">
+        <p id="back-to-product" hidden><a href="~/pages/product.html">Back to the product</a></p>
+        <h1>Find a branch</h1>
+        <p class="lead">More than 20 sites across the UK, Ireland and the Benelux, including Thorite, Allswage and Thomas Group branches.</p>
+      </div>
+
+      <!-- Search and filters (R50, R52, R54) -->
+      <form class="branch-search" id="branch-search" role="search">
+        <div class="field"><label for="b-q">Postcode or town</label><input type="text" id="b-q" autocomplete="postal-code"><p class="field-error" hidden>We couldn't find that place. Try a UK postcode like LS1 4AP, or a town with a branch, like Gloucester.</p></div>
+        <button type="submit" class="btn">Search</button>
+      </form>
+      <div class="chips-row" role="group" aria-label="Region">
+        <span class="lbl">Region</span>
+        <button type="button" class="chip" data-region="All" aria-pressed="true">All</button>
+        <button type="button" class="chip" data-region="UK" aria-pressed="false">UK</button>
+        <button type="button" class="chip" data-region="Ireland" aria-pressed="false">Ireland</button>
+        <button type="button" class="chip" data-region="Benelux" aria-pressed="false">Benelux</button>
+        <button type="button" class="chip" id="open-now" aria-pressed="false">Open now</button>
+      </div>
+      <div class="chips-row" id="cap-chips" role="group" aria-label="Services at the branch"></div>
+      <p class="result-count" id="branch-count" aria-live="polite"></p>
+
+      <div class="branch-layout">
+        <!-- Map with pins (R51) -->
+        <div class="map-frame">
+          <div class="wf-placeholder">Map of the UK, Ireland and Benelux (pins positioned by coordinates)</div>
+          <div id="map-pins"></div>
+        </div>
+        <!-- Results (R53, R55) -->
+        <div>
+          <ul class="branch-list" id="branch-list"></ul>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Search for WF8 1AA or Gloucester to sort by distance. Click a pin to highlight its branch. "Set as my branch" is remembered for the session and changes the stock shown on <a href="~/pages/product.html">product pages</a> and where service enquiries go.</p>
+          <p class="wf-note query" data-note="2"><span class="wf-note-label">Question for Flowtech</span>Should Thorite, Allswage and Thomas Group branches appear under their own names, as "part of Flowtech", or be rebranded? And which of them can hand over online orders for collection?</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

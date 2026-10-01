@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a hose assembly — Flowtech prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Hose assembly builder · idea 8</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Specify a hydraulic hose assembly online: hose type, bore, overall length, the fitting at each end, orientation if both ends are bent, a sleeve and a pressure test. The page shows the working pressure, a price and where and when it will be made, then puts it in the basket or turns it into a quote request.</p></div>
+          <div><h2>Why</h2><p>Bespoke hose assemblies are the first service listed under Bespoke Product Manufacture, and the FAQ asks "Can I check lead times on assembly products?", but there is no way to specify one online. Competitors who sell hose online lead with a builder. It is the one engineering service that behaves like a product, so it's the natural bridge between the two halves of the business.</p></div>
+        </div>
+        <p class="proposal-foot">Hose types, end fittings, pressures and prices are samples. The real options and price rules would come from Flowtech's hose ranges.</p>
+      </div>
+    </aside>
+
+    <div class="container">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li><a href="~/pages/services.html">Engineering services</a></li><li><a href="~/pages/service.html?id=bespoke">Bespoke product manufacture</a></li><li>Build a hose assembly</li></ol>
+        <h1>Build a hydraulic hose assembly</h1>
+        <p class="lead">Made to your specification in one of our Engineering Solution Centres. Most assemblies are ready the same day.</p>
+      </div>
+
+      <!-- Hose configurator (R44) -->
+      <form id="hose-form" class="hose-layout" novalidate>
+        <div>
+          <div class="hose-diagram" aria-hidden="true"><span class="wf-placeholder end">End A</span><span class="hose"></span><span class="wf-placeholder end">End B</span></div>
+          <fieldset>
+            <legend>Hose</legend>
+            <div class="form-grid">
+              <div class="field"><label for="h-type">Hose type</label><select id="h-type"></select></div>
+              <div class="field"><label for="h-bore">Bore</label><select id="h-bore"></select></div>
+              <div class="field"><label for="h-len">Overall length (mm)</label><input type="number" id="h-len" min="150" max="20000" step="10" value="1000"><p class="field-hint">Measured from end to end, including fittings.</p><p class="field-error" id="h-len-err" hidden>Enter a length between 150mm and 20,000mm</p></div>
+              <div class="field"><label for="h-qty">Quantity</label><input type="number" id="h-qty" min="1" value="1"></div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Ends</legend>
+            <div class="form-grid">
+              <div class="field"><label for="h-end-a">End A fitting</label><select id="h-end-a"></select></div>
+              <div class="field"><label for="h-end-b">End B fitting</label><select id="h-end-b"></select></div>
+              <div class="field full" id="h-orient-field" hidden><label for="h-orient">Orientation of the two bends</label><select id="h-orient"><option value="0">0° (in line)</option><option value="45">45°</option><option value="90">90°</option><option value="180">180°</option></select><p class="field-hint">Looking along the hose from End A, how far End B is turned clockwise.</p></div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Options</legend>
+            <label class="check" for="h-sleeve"><input type="checkbox" id="h-sleeve"> Protective sleeve along the full length</label>
+            <label class="check" for="h-test"><input type="checkbox" id="h-test"> Pressure test with certificate</label>
+          </fieldset>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Choose a 90° fitting for both ends to see the orientation question. The making site follows the visitor's chosen branch if it does hose assembly, otherwise the nearest centre (Gloucester in this sample).</p>
+        </div>
+        <aside class="panel hose-summary" aria-labelledby="h-sum-title">
+          <h2 id="h-sum-title" class="h4">Your assembly</h2>
+          <dl class="kv" id="h-summary"></dl>
+          <p class="price-line" id="h-price" aria-live="polite"></p>
+          <p class="small" id="h-lead"></p>
+          <div class="stack">
+            <button type="submit" class="btn btn-block">Add to basket</button>
+            <button type="button" class="btn btn-secondary btn-block" id="h-quote">Request a quote instead</button>
+          </div>
+          <p class="wf-note query" data-note="2"><span class="wf-note-label">Question for Flowtech</span>Which hose and fitting ranges should the builder offer first, and can the centres commit to a same-day promise?</p>
+        </aside>
+      </form>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

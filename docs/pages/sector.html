@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sector — Flowtech prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Flowtech's own header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Flowtech prototypes, overview">Flowtech <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/find-a-fitting.html" data-proto="find-a-fitting fitting-finder"><span class="n">1</span> Find a fitting</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">2</span> Product page</a></li>
+          <li><a href="../pages/quick-order.html" data-proto="quick-order request-a-quote my-quotes register"><span class="n">3</span> Order and quote</a></li>
+          <li><a href="../pages/services.html" data-proto="services service sector case-studies hose-builder book-a-visit"><span class="n">4</span> Services</a></li>
+          <li><a href="../pages/branches.html" data-proto="branches branch"><span class="n">5</span> Find a branch</a></li>
+        </ul>
+      </nav>
+      <a class="basket-chip" href="../pages/quick-order.html#basket" aria-label="Sample basket"><span>Basket</span> <b data-basket-count>0</b></a>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Sector template · idea 25</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A sector page brings together everything Flowtech does for one industry: the problems it solves, the services and product ranges that apply, case studies and recent news. Shown here with data centres. Bridges, waterways and flood defence is the most complete, because Flowtech already has named projects to point at.</p></div>
+          <div><h2>Why</h2><p>Flowtech exhibited at Data Centre World London 2026 and names data centres as a target sector, but a data centre engineer arriving at the site finds no page about their world. The same goes for defence and for bridges, where Tower Bridge, Narrow Water Bridge and Rice Bridge are mentioned only in news stories and a sentence on Projects.</p></div>
+        </div>
+        <p class="proposal-foot">Text in [brackets] is a placeholder for Flowtech to supply. We've only used facts from the live site.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="sector">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li><a href="../pages/services.html">Engineering services</a></li><li id="sec-crumb">Sector</li></ol>
+        <div class="row between">
+          <h1 id="sec-name">Sector</h1>
+          <form id="sec-switch-form" class="row"><label for="sec-switch" class="small">Prototype: show another sector</label><select id="sec-switch"></select><button type="submit" class="btn btn-sm btn-secondary">Show</button></form>
+        </div>
+        <p class="lead" id="sec-intro"></p>
+        <div class="row"><a class="btn" href="../pages/request-a-quote.html">Talk to a specialist</a><a class="btn btn-secondary" href="../pages/case-studies.html">Case studies</a></div>
+      </div>
+      <div class="wf-placeholder ratio-16-9" style="max-height:320px">Sector photograph</div>
+
+      <div class="split" style="margin-top:2rem">
+        <div>
+          <!-- Needs (R42) -->
+          <section aria-labelledby="need-title">
+            <h2 id="need-title" class="section-title">What we do for this sector</h2>
+            <ul class="tick-list" id="sec-needs"></ul>
+          </section>
+          <section aria-labelledby="ss-title">
+            <h2 id="ss-title" class="section-title">Services</h2>
+            <div class="svc-grid" id="sec-services"></div>
+          </section>
+          <section aria-labelledby="sc-title">
+            <h2 id="sc-title" class="section-title">Case studies</h2>
+            <div class="case-grid" id="sec-cases"></div>
+          </section>
+        </div>
+        <aside class="side-panel">
+          <div class="panel"><h2 class="h4">Product ranges</h2><ul class="tick-list" id="sec-cats"></ul></div>
+          <div class="panel surface" id="sec-news"><p class="wf-meta">Latest news</p><h3 class="h4">News</h3><p></p><a href="#">Read the story</a></div>
+          <div class="panel"><h2 class="h4">Accreditations</h2><div class="trust-row"><span class="wf-placeholder">Logo</span><span class="wf-placeholder">Logo</span><span class="wf-placeholder">Logo</span></div></div>
+          <p class="wf-note query" data-note="1"><span class="wf-note-label">Question for Flowtech</span>Which data centre and defence projects can be named publicly? A sector page without a case study is much weaker.</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Flowtech's own footer) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Sample product, stock, branch and quote data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

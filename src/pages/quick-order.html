@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick order — Flowtech prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 3 of 5 · Order and quote · ideas 19–23</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Four pages for trade buyers who already know what they want. Quick order takes codes and quantities typed, pasted from Excel or uploaded as a CSV, and shows the product, stock and price as each code goes in. <a href="~/pages/request-a-quote.html">Request a quote</a> takes a parts list and drawings. <a href="~/pages/my-quotes.html">My quotes</a> lists every quote with its status and turns a ready quote into an order. <a href="~/pages/register.html">Registration</a> is shorter and properly labelled.</p></div>
+          <div><h2>Why</h2><p>"Quick Order" in the live header opens the basket, and the Quick Add page explains that CSV upload lives on the basket page, so the feature exists but takes some finding. The contact form is the only way to ask for a quote: five fields, no parts list, no attachments. Quote retrieval sits on the homepage above the H1 and needs a login first. Repeat buyers are probably most of the revenue, so this is where small changes pay back fastest.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <nav class="sub-nav" aria-label="Order and quote">
+        <a href="~/pages/quick-order.html" aria-current="page">Quick order</a>
+        <a href="~/pages/request-a-quote.html">Request a quote</a>
+        <a href="~/pages/my-quotes.html">My quotes</a>
+        <a href="~/pages/register.html">Open an account</a>
+      </nav>
+
+      <div class="page-intro">
+        <h1>Quick order</h1>
+        <p class="lead">Enter product codes and quantities, paste lines from a spreadsheet or upload a CSV. We'll check each code as you go.</p>
+      </div>
+
+      <div class="split">
+        <!-- Code and quantity rows (R30) -->
+        <section aria-labelledby="rows-title">
+          <h2 id="rows-title" class="h4">Codes and quantities</h2>
+          <div class="table-wrap">
+            <table class="list-table qo-table">
+              <thead><tr><th scope="col">Product code</th><th scope="col">Qty</th><th scope="col">Product</th><th scope="col">Price (<span data-vat-label>exc VAT</span>)</th><th scope="col"><span class="visually-hidden">Remove</span></th></tr></thead>
+              <tbody id="qo-rows"></tbody>
+            </table>
+          </div>
+          <div class="row" style="margin-top:1rem">
+            <button type="button" class="btn btn-secondary" id="qo-add-row">Add a row</button>
+            <button type="button" class="btn" id="qo-submit">Add all to basket</button>
+          </div>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Press Enter to move from code to quantity to the next row. Unknown codes are marked, and another maker's code (try KQ2T08-00A, which we stock, or QST-8, which we don't) links to the equivalents finder.</p>
+        </section>
+
+        <!-- Paste or upload (R31) -->
+        <aside class="panel surface" aria-labelledby="paste-title">
+          <h2 id="paste-title" class="h4">Paste or upload a list</h2>
+          <div class="field"><label for="qo-paste">Paste lines</label><textarea id="qo-paste" rows="6" spellcheck="false" aria-describedby="qo-paste-hint"></textarea><p class="field-hint" id="qo-paste-hint">One product per line: code, then quantity. Copy two columns straight from Excel. <button type="button" class="btn-link" id="qo-sample">Fill with an example</button></p></div>
+          <button type="button" class="btn btn-secondary" id="qo-paste-btn">Add pasted lines</button>
+          <div class="field" style="margin-top:1.25rem"><label for="qo-file">Or upload a CSV file</label><input type="file" id="qo-file" accept=".csv,.txt"><p class="field-hint">Two columns: code and quantity. A header row is fine.</p></div>
+          <p class="small" id="qo-summary" aria-live="polite"></p>
+        </aside>
+      </div>
+
+      <!-- Basket (R32) -->
+      <section id="basket" aria-labelledby="basket-title">
+        <h2 id="basket-title" class="section-title">Your basket <span class="small muted">(sample, kept for this session)</span></h2>
+        <div id="basket-lines"></div>
+        <p id="basket-total"></p>
+        <div class="row" id="basket-actions">
+          <span class="seg" role="group" aria-label="Show prices"><button type="button" data-vat="ex">Exc VAT</button><button type="button" data-vat="inc">Inc VAT</button></span>
+          <button type="button" class="btn btn-secondary" id="basket-clear">Empty basket</button>
+          <button type="button" class="btn" id="basket-checkout">Go to checkout</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

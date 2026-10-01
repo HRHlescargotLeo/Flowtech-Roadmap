@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case studies — Flowtech prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Flowtech's own header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Flowtech prototypes, overview">Flowtech <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/find-a-fitting.html" data-proto="find-a-fitting fitting-finder"><span class="n">1</span> Find a fitting</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">2</span> Product page</a></li>
+          <li><a href="../pages/quick-order.html" data-proto="quick-order request-a-quote my-quotes register"><span class="n">3</span> Order and quote</a></li>
+          <li><a href="../pages/services.html" data-proto="services service sector case-studies hose-builder book-a-visit"><span class="n">4</span> Services</a></li>
+          <li><a href="../pages/branches.html" data-proto="branches branch"><span class="n">5</span> Find a branch</a></li>
+        </ul>
+      </nav>
+      <a class="basket-chip" href="../pages/quick-order.html#basket" aria-label="Sample basket"><span>Basket</span> <b data-basket-count>0</b></a>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Case study library · idea 26</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>One place for every project Flowtech can talk about, filterable by sector and region, each written the same way: challenge, solution, result, and the service behind it. Sector and service pages pull from the same library, so a case study is written once and appears wherever it's relevant.</p></div>
+          <div><h2>Why</h2><p>/case-studies returns a 404. Halley VI has a good case study page, but the only link to it we found is a homepage carousel slide. Projects mentions Tower Bridge and Halley VI in a sentence and links to neither, and the Knowledge Hub's "Case Studies" link takes you back to Projects. Flowtech has better stories than most of its competitors and is hiding them.</p></div>
+        </div>
+        <p class="proposal-foot">Halley VI is summarised from the live case study. The others are real projects from Flowtech's news, with details left as [placeholders].</p>
+      </div>
+    </aside>
+
+    <div class="container">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li><a href="../pages/services.html">Engineering services</a></li><li>Case studies</li></ol>
+        <h1>Case studies</h1>
+        <p class="lead">From Antarctic research stations to moving bridges: projects our engineers have designed, built and maintained.</p>
+      </div>
+
+      <!-- Filters (R43) -->
+      <div class="chips-row" id="case-f-sector" role="group" aria-label="Filter by sector"></div>
+      <div class="chips-row" id="case-f-region" role="group" aria-label="Filter by region"></div>
+      <p class="result-count" id="case-count" aria-live="polite"></p>
+      <div class="case-grid" id="case-grid"></div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Each card opens the case study. In the build these are full pages with their own address; the overlay keeps the prototype to one page.</p>
+    </div>
+
+    <div class="wf-modal" id="case-modal">
+      <div class="wf-modal-panel wide" role="dialog" aria-modal="true" aria-labelledby="cm-title">
+        <button type="button" class="wf-modal-close" aria-label="Close">×</button>
+        <p class="wf-meta" id="cm-meta"></p>
+        <h2 id="cm-title">Case study</h2>
+        <div class="wf-placeholder ratio-16-9">Project photograph</div>
+        <h3 style="margin-top:1rem">Challenge</h3><p id="cm-challenge"></p>
+        <h3>Solution</h3><p id="cm-solution"></p>
+        <h3>Result</h3><p id="cm-result"></p>
+        <p><a class="btn btn-secondary" id="cm-service" href="../pages/service.html">About this service</a></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Flowtech's own footer) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Sample product, stock, branch and quote data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

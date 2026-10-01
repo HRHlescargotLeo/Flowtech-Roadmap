@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Push-in Fittings &amp; Tubing — Flowtech prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Flowtech's own header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Flowtech prototypes, overview">Flowtech <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/find-a-fitting.html" data-proto="find-a-fitting fitting-finder"><span class="n">1</span> Find a fitting</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">2</span> Product page</a></li>
+          <li><a href="../pages/quick-order.html" data-proto="quick-order request-a-quote my-quotes register"><span class="n">3</span> Order and quote</a></li>
+          <li><a href="../pages/services.html" data-proto="services service sector case-studies hose-builder book-a-visit"><span class="n">4</span> Services</a></li>
+          <li><a href="../pages/branches.html" data-proto="branches branch"><span class="n">5</span> Find a branch</a></li>
+        </ul>
+      </nav>
+      <a class="basket-chip" href="../pages/quick-order.html#basket" aria-label="Sample basket"><span>Basket</span> <b data-basket-count>0</b></a>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main" class="flush">
+    <!-- What we're proposing and why (shown when Notes are on) -->
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 1 of 5 · Find a fitting · ideas 1–7 and 52</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A category listing that leads with the five or six filters a buyer actually uses for push-in fittings (tube size, connection, shape, thread and brand), with counts beside each option, an availability filter and the rest tucked behind More filters. Alongside it, a compact list view for people who buy by code and a <a href="../pages/fitting-finder.html">step-by-step fitting finder</a> for people who don't.</p></div>
+          <div><h2>Why</h2><p>The live Push-in Fittings &amp; Tubing listing has 13,159 products, shows 15 at a time and offers about 78 filters in alphabetical order, so Accessories and Actuation come before tube size, and Gauge Diameter and Number of Stations appear on a page of fittings. Availability is a single on/off switch. Most of this is configuration in the platform rather than new build, which helps.</p></div>
+        </div>
+        <p class="proposal-foot">The prototype uses 28 sample fittings. Codes, names, prices and national stock follow the live site where we saw them.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="listing">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li>Categories</li><li>Push-in Fittings &amp; Tubing</li></ol>
+        <h1>Push-in Fittings &amp; Tubing</h1>
+        <p class="lead">One-touch fittings and tube for air and vacuum lines, from FT Pro, John Guest, Aignep, Parker Legris and SMC. Not sure which fitting you need? <a href="../pages/fitting-finder.html">Use the fitting finder</a>.</p>
+      </div>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Each filter option shows how many products it would leave, given the filters already chosen. Options that would leave nothing are hidden, so a buyer can't filter their way to an empty page.</p>
+
+      <div class="results-toolbar">
+        <div class="row">
+          <button type="button" class="btn btn-secondary filters-toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters">Filters <span data-filter-count></span></button>
+          <span id="result-count" class="result-count" aria-live="polite"></span>
+        </div>
+        <div class="row">
+          <span class="seg" role="group" aria-label="Show prices"><button type="button" data-vat="ex">Exc VAT</button><button type="button" data-vat="inc">Inc VAT</button></span>
+          <span class="seg" role="group" aria-label="View"><button type="button" data-view="grid">Grid</button><button type="button" data-view="list">List</button></span>
+          <div class="field"><label class="visually-hidden" for="sort">Sort by</label>
+            <select id="sort"><option value="relevance">Sort: Relevance</option><option value="price-asc">Price, low to high</option><option value="price-desc">Price, high to low</option><option value="stock">Most in stock</option></select></div>
+          <div class="field"><label class="visually-hidden" for="per">Products per page</label>
+            <select id="per"><option value="12">12 per page</option><option value="24">24 per page</option><option value="48">48 per page</option></select></div>
+        </div>
+      </div>
+      <div class="active-filters" id="active-filters"></div>
+
+      <div class="listing-layout">
+        <!-- Category filters (R10, R11, R16) -->
+        <aside class="filters" id="filters" aria-label="Filters">
+          <form class="search-within" id="within-form" role="search">
+            <label class="visually-hidden" for="within">Search within Push-in Fittings</label>
+            <input type="search" id="within" placeholder="Code or description">
+            <button class="btn btn-sm" type="submit">Search</button>
+          </form>
+          <div id="facets-primary"></div>
+          <button type="button" class="btn btn-secondary more-filters-btn" data-drawer-open="more-filters">More filters <span id="more-count"></span></button>
+          <p class="wf-note query" data-note="2"><span class="wf-note-label">Question for Flowtech</span>Which filters do buyers use most in each category? Search and filter analytics would let us set the primary list per category rather than guess it.</p>
+        </aside>
+
+        <div>
+          <!-- Other makers' codes (R15) -->
+          <div class="panel surface crossref" id="crossref" hidden>
+            <h2 class="h4">Looking for an equivalent?</h2>
+            <div class="crossref-body"></div>
+          </div>
+          <p class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Search within the category for <b>QST-8</b> (a Festo code). The panel recognises another maker's part number and lists what we stock that does the same job, FT Pro first.</p>
+          <!-- Results: grid or list view (R12, R13) -->
+          <div id="results"></div>
+          <div id="pager"></div>
+          <p class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>List view, sort order and products per page are remembered for the session. In list view every row has its own quantity and Add, so a buyer can add six sizes without leaving the page.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- More filters drawer (R10) -->
+    <div class="drawer" id="more-filters">
+      <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="more-title">
+        <div class="drawer-head"><h2 id="more-title">More filters</h2><button type="button" class="drawer-close" aria-label="Close">×</button></div>
+        <div class="drawer-body">
+          <div id="facets-more"></div>
+          <p class="small muted">Other filters from the product data (approvals, seal material, working temperature) appear here only when products in the category use them.</p>
+        </div>
+        <div class="drawer-foot"><button type="button" class="btn" data-drawer-close>Show results</button></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Flowtech's own footer) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Sample product, stock, branch and quote data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

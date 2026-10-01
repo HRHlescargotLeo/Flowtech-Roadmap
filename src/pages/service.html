@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service — Flowtech prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Service template · idea 24</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>One template for every engineering service: what's included, typical turnaround, the sites that offer it, a case study and a short enquiry form that already knows which service it's about. Where there's a tool (book a visit, build a hose), it sits at the top.</p></div>
+          <div><h2>Why</h2><p>A buyer searching for "hydraulic cylinder repair" has nowhere specific to land today, only a line in a list on the Services page. A page per service gives search engines and buyers something to find, and gives the sales team a link to send.</p></div>
+        </div>
+        <p class="proposal-foot">Switch service with the links at the bottom of the page. Turnaround times and some inclusions are samples, marked [sample].</p>
+      </div>
+    </aside>
+
+    <div class="container" id="service">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li><a href="~/pages/services.html">Engineering services</a></li><li id="svc-crumb">Service</li></ol>
+        <h1 id="svc-name">Service</h1>
+        <p class="lead" id="svc-summary"></p>
+        <p><a class="btn" id="svc-tool" href="~/pages/book-a-visit.html" hidden>Book</a></p>
+      </div>
+
+      <div class="split">
+        <div>
+          <!-- What's included (R41) -->
+          <section aria-labelledby="inc-title">
+            <h2 id="inc-title" class="section-title">What's included</h2>
+            <ul class="tick-list" id="svc-includes"></ul>
+            <p><b>Typical turnaround:</b> <span id="svc-turnaround"></span></p>
+            <div class="wf-placeholder ratio-16-9">Photo or short video of the work</div>
+          </section>
+          <section aria-labelledby="case-title">
+            <h2 id="case-title" class="section-title">Case study</h2>
+            <div class="case-grid" id="svc-case"></div>
+          </section>
+        </div>
+
+        <aside class="side-panel">
+          <!-- Sites (R41, links to prototype 5) -->
+          <div class="panel">
+            <h2 class="h4">Offered at <span id="svc-site-count"></span> sites</h2>
+            <ul class="tick-list" id="svc-sites"></ul>
+            <p class="small"><a href="~/pages/branches.html">Find the nearest on a map</a></p>
+          </div>
+          <!-- Short enquiry (R46) -->
+          <div class="panel surface">
+            <h2 class="h4">Ask about this service</h2>
+            <form id="svc-form" novalidate>
+              <input type="hidden" id="svc-enquiry-service" value="">
+              <div class="field"><label for="svc-n">Name</label><input type="text" id="svc-n" autocomplete="name" required><p class="field-error" hidden>Enter your name</p></div>
+              <div class="field"><label for="svc-c">Company</label><input type="text" id="svc-c" autocomplete="organization" required><p class="field-error" hidden>Enter your company</p></div>
+              <div class="field"><label for="svc-e">Email</label><input type="email" id="svc-e" autocomplete="email" required><p class="field-error" hidden>Enter an email address like name@company.co.uk</p></div>
+              <div class="field"><label for="svc-p">Phone</label><input type="tel" id="svc-p" autocomplete="tel" required><p class="field-error" hidden>Enter a phone number</p></div>
+              <div class="field"><label for="svc-m">What do you need?</label><textarea id="svc-m" rows="4" required></textarea><p class="field-error" hidden>Tell us briefly what you need</p></div>
+              <button type="submit" class="btn btn-block">Send</button>
+            </form>
+            <div id="svc-done" hidden><h3>Thanks, we've got it</h3><p>Your enquiry has gone to <b id="svc-done-site"></b>. An engineer will reply within one working day [to confirm].</p></div>
+          </div>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>If the visitor has chosen a branch in prototype 5, the enquiry is routed there; otherwise to the nearest Engineering Solution Centre.</p>
+        </aside>
+      </div>
+
+      <section aria-labelledby="other-title">
+        <h2 id="other-title" class="section-title">Other services</h2>
+        <ul class="sector-list" id="svc-other"></ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

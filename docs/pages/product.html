@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — Flowtech prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Flowtech's own header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Flowtech prototypes, overview">Flowtech <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/find-a-fitting.html" data-proto="find-a-fitting fitting-finder"><span class="n">1</span> Find a fitting</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">2</span> Product page</a></li>
+          <li><a href="../pages/quick-order.html" data-proto="quick-order request-a-quote my-quotes register"><span class="n">3</span> Order and quote</a></li>
+          <li><a href="../pages/services.html" data-proto="services service sector case-studies hose-builder book-a-visit"><span class="n">4</span> Services</a></li>
+          <li><a href="../pages/branches.html" data-proto="branches branch"><span class="n">5</span> Find a branch</a></li>
+        </ul>
+      </nav>
+      <a class="basket-chip" href="../pages/quick-order.html#basket" aria-label="Sample basket"><span>Basket</span> <b data-basket-count>0</b></a>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 2 of 5 · Product page · ideas 9–18</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A product page that answers the three things a buyer needs before ordering: when it will arrive (a delivery date for their postcode and quantity, before the basket), what it costs (with or without VAT, per pack and per unit) and what else they need (tube, cutter and plugs that fit). Stock at the buyer's own branch sits beside national stock. Specs show only fields with values, and look-alike products explain how they differ.</p></div>
+          <div><h2>Why</h2><p>Today a non-stock item says "Please add desired quantity to your basket to see any applicable lead times". The FT Pro 8mm tee's specification shows "0&#xFFFD;C to +60&#xFFFD;C", its variant table showed one set of prices and then another while loading, and the Top Selling carousel lists two products with the same name at £1.15 and £6.48 with nothing to say why. The SMC union tee KQ2T08-00A is listed as "MALE FITTING, D 8 TUBE" under Male Studs, with 13 empty variant columns. None of these is hard to fix, and between them they decide whether a buyer trusts the page enough to order from it.</p></div>
+        </div>
+        <p class="proposal-foot">Open any product from the listing, or try <a href="../pages/product.html?code=KQ2T08-00A">KQ2T08-00A</a> (not in stock) and <a href="../pages/product.html?code=FT-PU08-30B">FT-PU08-30B</a> (sold by the reel).</p>
+      </div>
+    </aside>
+
+    <div class="container" id="product">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li><a href="../pages/find-a-fitting.html">Push-in Fittings &amp; Tubing</a></li><li id="crumb-cat">Tube to tube connectors</li><li id="crumb-name">Product</li></ol>
+      </div>
+
+      <div class="product-top">
+        <!-- Gallery -->
+        <div>
+          <div class="wf-placeholder ratio-1-1">Product image (zoomable)</div>
+          <div class="thumbs"><span class="wf-placeholder">Angle</span><span class="wf-placeholder">Dimensions</span><span class="wf-placeholder">In use</span><span class="wf-placeholder">360°</span></div>
+        </div>
+
+        <!-- Buy box (R20–R23) -->
+        <div class="buy-box">
+          <p class="p-brand" id="p-brand">FT Pro</p>
+          <h1 id="p-name">Product</h1>
+          <p class="meta-line"><span>Code <b id="p-code"></b></span><a href="#tab-downloads" id="p-tech">Tech sheet (PDF)</a></p>
+          <p class="p-chips" id="p-chips"></p>
+          <div>
+            <p class="p-price" id="p-price"></p>
+            <p class="small muted"><span id="p-alt-vat"></span> · <span class="seg" role="group" aria-label="Show prices"><button type="button" data-vat="ex">Exc VAT</button><button type="button" data-vat="inc">Inc VAT</button></span></p>
+          </div>
+          <div class="buy-row">
+            <div class="qty-stepper"><button type="button" data-step="-1" aria-label="One fewer">−</button><label class="visually-hidden" for="p-qty">Quantity</label><input type="number" id="p-qty" min="1" value="1"><button type="button" data-step="1" aria-label="One more">+</button></div>
+            <button type="button" class="btn" id="p-add">Add to basket</button>
+          </div>
+          <p class="small" id="p-line"></p>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The VAT choice is remembered across every page, and the line total updates with the quantity. Pack products (try the tube) show the pack price and the unit price.</p>
+
+          <div class="panel">
+            <p id="p-stock"></p>
+            <p id="p-branch" class="small"></p>
+            <p class="small" id="p-cutoff"></p>
+          </div>
+
+          <!-- Delivery date checker (R22) -->
+          <div class="delivery-box">
+            <form class="delivery-form" id="delivery-form" novalidate>
+              <div class="field"><label for="d-postcode">When will it arrive?</label><input type="text" id="d-postcode" autocomplete="postal-code" placeholder="Your postcode"><p class="field-error" hidden></p></div>
+              <button type="submit" class="btn btn-secondary">Check date</button>
+            </form>
+            <div id="delivery-result" class="delivery-result" aria-live="polite" hidden></div>
+          </div>
+          <p class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Uses the real cut-off (10pm Monday to Friday for next-day) and the postcode areas the Hours &amp; Delivery page excludes (try IV2 3AB). Ask for more than is in stock to see a split delivery. Lead times are sample figures.</p>
+          <p class="wf-note query" data-note="3"><span class="wf-note-label">Question for Flowtech</span>Can the ERP give a lead time per product and per supplier, and stock per site, in real time? The date and the branch stock both depend on it.</p>
+        </div>
+      </div>
+
+      <!-- Look-alike products (R28) -->
+      <section class="panel surface lookalike" id="lookalike" hidden aria-labelledby="look-title">
+        <h2 id="look-title" class="h4">Two products with similar names</h2>
+        <div class="lookalike-body"></div>
+      </section>
+
+      <!-- Detail tabs (R24, R25, R29) -->
+      <section aria-label="Product details">
+        <div class="tabs" role="tablist">
+          <button type="button" class="tab active" data-tab="tab-specs" aria-selected="true">Specifications</button>
+          <button type="button" class="tab" data-tab="tab-variants" aria-selected="false">Other sizes</button>
+          <button type="button" class="tab" data-tab="tab-downloads" aria-selected="false">Downloads</button>
+          <button type="button" class="tab" data-tab="tab-delivery" aria-selected="false">Delivery and returns</button>
+        </div>
+        <div>
+          <div class="tab-panel active" id="tab-specs" role="tabpanel">
+            <div class="split">
+              <dl class="kv" id="spec-list"></dl>
+              <p id="spec-text"></p>
+            </div>
+            <p class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>Only fields with values are shown. Names follow one standard (brand, size, type, title case) and the description is checked for broken characters on import.</p>
+          </div>
+          <div class="tab-panel" id="tab-variants" role="tabpanel"><div id="variants"></div></div>
+          <div class="tab-panel" id="tab-downloads" role="tabpanel">
+            <ul class="hub-links">
+              <li><a href="#">Tech sheet (PDF)</a><span>Dimensions, ratings and materials</span></li>
+              <li><a href="#">CAD model (STEP) [sample]</a><span>Where the supplier provides one</span></li>
+              <li><a href="#">Declaration of conformity (PDF) [sample]</a><span>For compliance records</span></li>
+            </ul>
+            <p class="wf-note query" data-note="5"><span class="wf-note-label">Question for Flowtech</span>Do suppliers send CAD files and certificates through Pimberly today?</p>
+          </div>
+          <div class="tab-panel" id="tab-delivery" role="tabpanel">
+            <p>Order by 10pm Monday to Friday for delivery the next working day to UK mainland addresses. Free next-day delivery on online orders over £50 exc VAT, otherwise £12.50. Returns: [summary of the returns policy, with a link to start a return].</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fits with (R26) -->
+      <section aria-labelledby="fits-title">
+        <div class="row between"><h2 id="fits-title" class="section-title">You may also need</h2></div>
+        <div class="fits-grid" id="fits"></div>
+        <p><button type="button" class="btn btn-secondary" id="fits-add">Add ticked items to basket</button></p>
+      </section>
+
+      <!-- Equivalents (R27) -->
+      <section aria-labelledby="eq-title">
+        <h2 id="eq-title" class="section-title">Equivalents from other brands</h2>
+        <div id="equivalents"></div>
+      </section>
+    </div>
+
+    <!-- Mobile buy bar -->
+    <div class="prop-sticky" id="p-sticky"><span class="name" id="p-sticky-name"></span><button type="button" class="btn" id="p-sticky-add">Add to basket</button></div>
+  </main>
+
+  <!-- Prototype pager (replaces Flowtech's own footer) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Sample product, stock, branch and quote data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

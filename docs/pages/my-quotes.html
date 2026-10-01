@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My quotes — Flowtech prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Flowtech's own header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Flowtech prototypes, overview">Flowtech <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/find-a-fitting.html" data-proto="find-a-fitting fitting-finder"><span class="n">1</span> Find a fitting</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">2</span> Product page</a></li>
+          <li><a href="../pages/quick-order.html" data-proto="quick-order request-a-quote my-quotes register"><span class="n">3</span> Order and quote</a></li>
+          <li><a href="../pages/services.html" data-proto="services service sector case-studies hose-builder book-a-visit"><span class="n">4</span> Services</a></li>
+          <li><a href="../pages/branches.html" data-proto="branches branch"><span class="n">5</span> Find a branch</a></li>
+        </ul>
+      </nav>
+      <a class="basket-chip" href="../pages/quick-order.html#basket" aria-label="Sample basket"><span>Basket</span> <b data-basket-count>0</b></a>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 3 of 5 · My quotes · idea 21</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Quotes live in the account, listed with their status, value and expiry date. A ready quote opens to show its lines and goes into the basket at the quoted prices in one click. Expired quotes offer a re-quote rather than a dead end.</p></div>
+          <div><h2>Why</h2><p>The homepage currently gives its second slot, above the welcome heading, to a "Retrieving A Quote?" panel that only works once you're logged in and know your reference number. That space is better spent on finding products, and the quote belongs where the buyer already is when they come back to order.</p></div>
+        </div>
+        <p class="proposal-foot">Shown as a signed-in trade account. Quote prices are sample figures (catalogue price less 8%).</p>
+      </div>
+    </aside>
+
+    <div class="container">
+      <nav class="sub-nav" aria-label="Order and quote">
+        <a href="../pages/quick-order.html">Quick order</a>
+        <a href="../pages/request-a-quote.html">Request a quote</a>
+        <a href="../pages/my-quotes.html" aria-current="page">My quotes</a>
+        <a href="../pages/register.html">Open an account</a>
+      </nav>
+
+      <div class="page-intro">
+        <p class="wf-meta">Signed in as [Sample Engineering Ltd], account [12345]</p>
+        <h1>My quotes</h1>
+        <p class="lead">Quotes from the sales team and the website, newest first. Turn a ready quote into an order, or ask for a new one.</p>
+      </div>
+
+      <!-- Quote list (R35) -->
+      <div class="results-toolbar">
+        <div class="field"><label for="quote-search">Find a quote by number</label><input type="search" id="quote-search" inputmode="numeric" placeholder="e.g. 48213"></div>
+        <div class="chips-row" role="group" aria-label="Filter by status">
+          <span class="lbl">Status</span>
+          <button type="button" class="chip" data-qfilter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-qfilter="Ready" aria-pressed="false">Ready</button>
+          <button type="button" class="chip" data-qfilter="In progress" aria-pressed="false">In progress</button>
+          <button type="button" class="chip" data-qfilter="Expired" aria-pressed="false">Expired</button>
+          <button type="button" class="chip" data-qfilter="Ordered" aria-pressed="false">Ordered</button>
+        </div>
+      </div>
+      <p class="result-count" id="quote-count" aria-live="polite"></p>
+      <div id="quote-list"></div>
+      <p class="row"><a class="btn btn-secondary" href="../pages/request-a-quote.html">Request a new quote</a> <span class="seg" role="group" aria-label="Show prices"><button type="button" data-vat="ex">Exc VAT</button><button type="button" data-vat="inc">Inc VAT</button></span></p>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Open Q-48213 and add it to the basket: the lines arrive at the quoted price and are labelled with the quote number. The basket count in the top bar updates.</p>
+      <p class="wf-note query" data-note="2"><span class="wf-note-label">Question for Flowtech</span>Are quotes raised by the sales team in the ERP available to the website, and can a quote be part-ordered?</p>
+    </div>
+
+    <!-- Quote detail -->
+    <div class="wf-modal" id="quote-modal">
+      <div class="wf-modal-panel wide" role="dialog" aria-modal="true" aria-labelledby="qm-title">
+        <button type="button" class="wf-modal-close" aria-label="Close">×</button>
+        <h2 id="qm-title">Quote</h2>
+        <p class="wf-meta" id="qm-meta"></p>
+        <div class="table-wrap"><table class="list-table"><thead><tr><th scope="col">Item</th><th scope="col">Qty</th><th scope="col">Quoted price each</th></tr></thead><tbody id="qm-lines"></tbody></table></div>
+        <p style="margin-top:1rem"><button type="button" class="btn" id="qm-order">Add all to basket at quoted prices</button></p>
+        <p id="qm-expired" hidden>This quote has expired. <a href="../pages/request-a-quote.html">Ask for a new quote</a> with the same lines.</p>
+        <p id="qm-wait" hidden>The team is still working on this quote. We'll email you when it's ready.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Flowtech's own footer) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Sample product, stock, branch and quote data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

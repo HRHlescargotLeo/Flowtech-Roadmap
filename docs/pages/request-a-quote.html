@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a quote — Flowtech prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Flowtech's own header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Flowtech prototypes, overview">Flowtech <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/find-a-fitting.html" data-proto="find-a-fitting fitting-finder"><span class="n">1</span> Find a fitting</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">2</span> Product page</a></li>
+          <li><a href="../pages/quick-order.html" data-proto="quick-order request-a-quote my-quotes register"><span class="n">3</span> Order and quote</a></li>
+          <li><a href="../pages/services.html" data-proto="services service sector case-studies hose-builder book-a-visit"><span class="n">4</span> Services</a></li>
+          <li><a href="../pages/branches.html" data-proto="branches branch"><span class="n">5</span> Find a branch</a></li>
+        </ul>
+      </nav>
+      <a class="basket-chip" href="../pages/quick-order.html#basket" aria-label="Sample basket"><span>Basket</span> <b data-basket-count>0</b></a>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 3 of 5 · Request a quote · idea 20</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A quote request that takes what a buyer actually has to hand: a parts list (pasted or uploaded), drawings or photos, a delivery postcode and a date. Each line is matched against the catalogue as it is pasted, and lines we can't match are accepted rather than rejected, because identifying them is part of the service.</p></div>
+          <div><h2>Why</h2><p>The only route today is the contact form, with a "What can we help you with?" menu, name, company, email and one message box. A buyer with a 40-line bill of materials has to type it out or email it separately, and the sales team then has to re-key it. The request arrives with no phone number and no account number, which presumably costs a call before any work starts.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <nav class="sub-nav" aria-label="Order and quote">
+        <a href="../pages/quick-order.html">Quick order</a>
+        <a href="../pages/request-a-quote.html" aria-current="page">Request a quote</a>
+        <a href="../pages/my-quotes.html">My quotes</a>
+        <a href="../pages/register.html">Open an account</a>
+      </nav>
+
+      <div class="page-intro">
+        <h1>Request a quote</h1>
+        <p class="lead">Send us your parts list and any drawings. We usually reply within one working day [to confirm], and we'll identify anything we can't match.</p>
+      </div>
+
+      <!-- Quote request form (R33, R34) -->
+      <form id="rfq-form" novalidate>
+        <div class="error-summary" role="alert" hidden><b>Some details are missing.</b> Check the fields marked below.</div>
+        <div class="split">
+          <div>
+            <fieldset>
+              <legend>What do you need?</legend>
+              <div class="field"><label for="rfq-parts">Parts list</label><textarea id="rfq-parts" rows="7" spellcheck="false" required aria-describedby="rfq-parts-hint"></textarea><p class="field-hint" id="rfq-parts-hint">One line per part: code or description, then quantity. Paste from Excel, or upload a file below.</p><p class="field-error" hidden>Add at least one part, or describe what you need</p></div>
+              <div id="rfq-preview" aria-live="polite"></div>
+              <div class="field"><label for="rfq-file-parts">Or upload a parts list (CSV) <span class="muted">(optional)</span></label><input type="file" id="rfq-file-parts" accept=".csv,.txt"></div>
+              <div class="field"><label for="rfq-files">Drawings or photos <span class="muted">(optional)</span></label><input type="file" id="rfq-files" multiple accept=".pdf,.dwg,.dxf,.step,.stp,.jpg,.jpeg,.png"><p class="field-hint">PDF, DWG, DXF, STEP or images, up to 20MB in total.</p><p class="field-error" id="rfq-files-error" hidden>These files come to more than 20MB. Remove some, or email them to sales@flowtech.co.uk with your quote number.</p><ul class="file-list" id="rfq-file-list"></ul></div>
+              <div class="form-grid">
+                <div class="field"><label for="rfq-postcode">Delivery postcode</label><input type="text" id="rfq-postcode" autocomplete="postal-code" required data-pattern="^[A-Z]{1,2}[0-9][0-9A-Z]?\s*[0-9][A-Z]{2}$"><p class="field-error" hidden>Enter a full UK postcode, like GL2 5JY</p></div>
+                <div class="field"><label for="rfq-date">Needed by <span class="muted">(optional)</span></label><input type="date" id="rfq-date"></div>
+              </div>
+              <div class="field"><label for="rfq-notes">Anything else we should know? <span class="muted">(optional)</span></label><textarea id="rfq-notes" rows="3"></textarea></div>
+            </fieldset>
+          </div>
+          <div>
+            <fieldset>
+              <legend>Your details</legend>
+              <div class="field"><label for="rfq-name">Full name</label><input type="text" id="rfq-name" autocomplete="name" required><p class="field-error" hidden>Enter your name</p></div>
+              <div class="field"><label for="rfq-company">Company</label><input type="text" id="rfq-company" autocomplete="organization" required><p class="field-error" hidden>Enter your company name</p></div>
+              <div class="field"><label for="rfq-mail">Email</label><input type="email" id="rfq-mail" autocomplete="email" required><p class="field-error" hidden>Enter an email address like name@company.co.uk</p></div>
+              <div class="field"><label for="rfq-phone">Phone</label><input type="tel" id="rfq-phone" autocomplete="tel" required><p class="field-hint">So the team can call if a part needs checking.</p><p class="field-error" hidden>Enter a phone number</p></div>
+            </fieldset>
+            <fieldset>
+              <legend>Do you have a Flowtech account?</legend>
+              <label class="check" for="rfq-acc-yes"><input type="radio" name="rfq-account" id="rfq-acc-yes" value="yes"> Yes</label>
+              <label class="check" for="rfq-acc-no"><input type="radio" name="rfq-account" id="rfq-acc-no" value="no" checked> No, or not sure</label>
+              <div class="field" id="rfq-acc-field" hidden style="margin-top:0.75rem"><label for="rfq-acc">Account number</label><input type="text" id="rfq-acc"><p class="field-hint">On your invoices. Lets us quote your account prices.</p></div>
+            </fieldset>
+            <button type="submit" class="btn btn-block">Send quote request</button>
+            <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Submit with fields empty to see the error summary and messages. A successful request gets a reference and appears at the top of My quotes for this session.</p>
+            <p class="wf-note query" data-note="2"><span class="wf-note-label">Question for Flowtech</span>Where should quote requests land (CRM, ERP, a shared inbox) and how quickly can the team promise a reply?</p>
+          </div>
+        </div>
+      </form>
+
+      <div id="rfq-done" class="confirm-box" hidden>
+        <div class="tick" aria-hidden="true">✓</div>
+        <h2>Request sent: <span id="rfq-ref"></span></h2>
+        <p>We've received <span id="rfq-lines"></span> and sent a copy to <b id="rfq-email"></b>.</p>
+        <p>The sales team will check each part, identify anything we couldn't match and send the quote, usually within one working day [to confirm]. You'll find it under <a href="../pages/my-quotes.html">My quotes</a>, ready to turn into an order.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Flowtech's own footer) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Sample product, stock, branch and quote data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

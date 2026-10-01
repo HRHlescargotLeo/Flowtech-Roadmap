@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering services — Flowtech prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Engineering services · ideas 8 and 24–30</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Give the engineering side of Flowtech the same structure as the product side: a page for each service, a page for each sector, a case study library that can be filtered, and two tools that turn interest into work (a <a href="~/pages/hose-builder.html">hose assembly builder</a> and <a href="~/pages/book-a-visit.html">online booking of a service visit</a>). Every service page lists the sites that offer it, which links this prototype to the branch finder.</p></div>
+          <div><h2>Why</h2><p>Services is currently one page of headings and lists: seven services and six capabilities with no links, seven industries with no pages, and a page for export that exists but isn't linked from it. Projects is headed "Case studies" and links to none; /case-studies is a 404. The FY25 results name engineering projects as one of four growth levers and data centres, defence, and bridges and waterways as target sectors. The website doesn't yet reflect any of that.</p></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="container">
+      <div class="page-intro">
+        <h1>Engineering services</h1>
+        <p class="lead">We design, manufacture, assemble, install, commission, test, service, repair and overhaul fluid power products and systems, from Engineering Solution Centres across the UK, Ireland and the Benelux.</p>
+        <div class="row"><a class="btn" href="~/pages/book-a-visit.html">Book a service visit</a><a class="btn btn-secondary" href="~/pages/hose-builder.html">Build a hose assembly</a><a class="btn btn-secondary" href="~/pages/branches.html">Find a centre near you</a></div>
+      </div>
+
+      <!-- Service index (R40) -->
+      <section aria-labelledby="svc-title">
+        <h2 id="svc-title" class="section-title">Our services</h2>
+        <div class="svc-grid" id="service-grid"></div>
+        <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The seven services are the ones on the live Services page. Each opens the same service template, filled from the CMS; the site count comes from the branch data.</p>
+      </section>
+
+      <!-- Sectors (R42) -->
+      <section aria-labelledby="sec-title">
+        <h2 id="sec-title" class="section-title">Sectors we work in</h2>
+        <ul class="sector-list" id="sector-grid"></ul>
+        <p class="small muted">Outlined in bold: the target sectors named in the FY25 results.</p>
+      </section>
+
+      <!-- Case study strip (R43) -->
+      <section aria-labelledby="cs-title">
+        <div class="row between"><h2 id="cs-title" class="section-title">Projects we've delivered</h2><a href="~/pages/case-studies.html">All case studies</a></div>
+        <div class="case-grid" id="case-strip"></div>
+      </section>
+
+      <!-- Customer quote placeholder (R47) -->
+      <section aria-label="What customers say">
+        <blockquote class="wf-quote"><p>[Approved quote from a named service or project customer, about the result rather than the relationship.]</p><cite>[Name, role, company]</cite></blockquote>
+        <p class="wf-note query" data-note="2"><span class="wf-note-label">Question for Flowtech</span>Which customers would agree to be quoted by name? We won't put invented quotes on the page.</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>

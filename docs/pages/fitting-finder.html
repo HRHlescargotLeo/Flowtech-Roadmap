@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitting finder — Flowtech prototype</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces Flowtech's own header, R01) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="Flowtech prototypes, overview">Flowtech <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/find-a-fitting.html" data-proto="find-a-fitting fitting-finder"><span class="n">1</span> Find a fitting</a></li>
+          <li><a href="../pages/product.html" data-proto="product"><span class="n">2</span> Product page</a></li>
+          <li><a href="../pages/quick-order.html" data-proto="quick-order request-a-quote my-quotes register"><span class="n">3</span> Order and quote</a></li>
+          <li><a href="../pages/services.html" data-proto="services service sector case-studies hose-builder book-a-visit"><span class="n">4</span> Services</a></li>
+          <li><a href="../pages/branches.html" data-proto="branches branch"><span class="n">5</span> Find a branch</a></li>
+        </ul>
+      </nav>
+      <a class="basket-chip" href="../pages/quick-order.html#basket" aria-label="Sample basket"><span>Basket</span> <b data-basket-count>0</b></a>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 1 of 5 · Fitting finder · ideas 6 and 7</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Four questions that narrow 13,000 push-in fittings to a handful: tube size, what it connects, thread (only if it screws into a port) and shape. Each answer shows how many products it leaves. Beside it, a box for another maker's part number that returns what Flowtech stocks to do the same job.</p></div>
+          <div><h2>Why</h2><p>There is no guided route into the range today. A maintenance engineer with an 8mm tee in their hand either knows the code or filters a 13,159-product listing. Code search already works well for Flowtech's own and stocked brands' codes (searching SMC's KQ2T08-00A goes straight to the product), so equivalents are the natural next step, and the one that moves sales toward FT Pro.</p></div>
+        </div>
+        <p class="proposal-foot">Equivalents here are a sample mapping. In the build they would come from Flowtech's cross-reference data in Pimberly.</p>
+      </div>
+    </aside>
+
+    <div class="container">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li><a href="../pages/find-a-fitting.html">Push-in Fittings &amp; Tubing</a></li><li>Fitting finder</li></ol>
+        <h1>Find the right push-in fitting</h1>
+        <p class="lead">Answer up to four questions. We'll show the fittings that match, with stock and price.</p>
+      </div>
+
+      <div class="finder-layout">
+        <!-- Guided selector (R14) -->
+        <section id="finder" aria-label="Fitting finder">
+          <ol class="finder-progress" id="finder-progress"></ol>
+          <div id="finder-step"></div>
+          <div id="finder-results" hidden>
+            <h2>Matching fittings</h2>
+            <ul class="finder-list"></ul>
+            <p><a id="finder-all" href="../pages/find-a-fitting.html">See these in the full listing, with filters</a></p>
+          </div>
+          <div class="step-nav">
+            <button type="button" class="btn btn-secondary" id="finder-back" hidden>Back</button>
+            <button type="button" class="btn-link" id="finder-restart">Start again</button>
+          </div>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>The thread question only appears for tube-to-thread fittings. Answers are kept if the buyer goes back, and the results link opens the listing with the same filters applied.</p>
+        </section>
+
+        <!-- Cross-reference (R15) -->
+        <aside class="panel surface" aria-labelledby="xref-title">
+          <h2 id="xref-title" class="h4">Have another maker's part number?</h2>
+          <form id="xref-form" class="stack" role="search">
+            <div class="field"><label for="xref-code">Part number</label><input type="search" id="xref-code" autocomplete="off" spellcheck="false"><p class="field-hint">For example SMC, Festo, Parker Legris or John Guest codes.</p></div>
+            <button type="submit" class="btn">Find equivalents</button>
+          </form>
+          <p class="small">Try: <button type="button" class="btn-link" data-xref="KQ2T08-00A">KQ2T08-00A</button> · <button type="button" class="btn-link" data-xref="QST-8">QST-8</button> · <button type="button" class="btn-link" data-xref="PM0408E">PM0408E</button></p>
+          <div id="xref-result" aria-live="polite" hidden></div>
+          <p class="wf-note query" data-note="2"><span class="wf-note-label">Question for Flowtech</span>Is there a cross-reference table today (in Pimberly, the ERP or the sales team's heads), and who would own it? The feature is only as good as that data.</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Prototype pager (replaces Flowtech's own footer) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prepared by ClerksWell · Prototypes for discussion · Sample product, stock, branch and quote data</p>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a service visit — Flowtech prototype</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Book a service visit · idea 27</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Book an engineer or a workshop repair in four short steps: what you need, where you are (which finds the nearest centres that can do it), when, and your details. Emergencies skip the calendar and go straight to a call-back, with the out-of-hours charge shown up front.</p></div>
+          <div><h2>Why</h2><p>Hours &amp; Delivery mentions a £75 out-of-hours call-out charge, but booking any visit means finding the right number or one of seven email addresses on the contact page. Online booking is standard for on-site hose and hydraulic service, and the request arrives with the location, the equipment and photos already attached.</p></div>
+        </div>
+        <p class="proposal-foot">Availability, call-back times and references are samples.</p>
+      </div>
+    </aside>
+
+    <div class="container" id="visit">
+      <div class="page-intro">
+        <ol class="crumbs"><li>Home</li><li><a href="~/pages/services.html">Engineering services</a></li><li>Book a service visit</li></ol>
+        <h1>Book a service visit</h1>
+        <p class="lead">An engineer on site, or a repair in one of our workshops. For a breakdown right now, call <b>+44 (0) 33 000 22 223</b>.</p>
+      </div>
+
+      <!-- Stepped booking (R45) -->
+      <div id="v-steps">
+        <ol class="stepper four">
+          <li>What you need</li><li>Where</li><li>When</li><li>Your details</li>
+        </ol>
+
+        <section class="step-panel" data-step="1">
+          <h2>What do you need?</h2>
+          <fieldset id="v-type-fs">
+            <legend class="visually-hidden">Type of visit</legend>
+            <div class="option-cards">
+              <label class="option-card" for="v-type-emergency"><input type="radio" name="v-type" id="v-type-emergency" value="emergency"><strong>Breakdown or emergency</strong><span>Something has failed and you need an engineer today</span></label>
+              <label class="option-card" for="v-type-hose"><input type="radio" name="v-type" id="v-type-hose" value="hose"><strong>Hose replacement on site</strong><span>A planned swap of one or more hoses</span></label>
+              <label class="option-card" for="v-type-service"><input type="radio" name="v-type" id="v-type-service" value="service"><strong>Planned service or maintenance</strong><span>Inspection, servicing or a maintenance contract</span></label>
+              <label class="option-card" for="v-type-repair"><input type="radio" name="v-type" id="v-type-repair" value="repair"><strong>Workshop repair</strong><span>Cylinder, pump, motor or valve repair and overhaul</span></label>
+            </div>
+            <p class="field-error" hidden>Choose the type of visit</p>
+          </fieldset>
+          <div class="step-nav"><span></span><button type="button" class="btn" id="v-next-1">Continue</button></div>
+        </section>
+
+        <section class="step-panel" data-step="2" hidden>
+          <h2>Where is the equipment?</h2>
+          <p class="panel surface" id="v-emergency" hidden><b>Out of hours?</b> Call-outs outside 8am to 5.30pm Monday to Thursday (5pm Friday) carry a £75 call-out charge.</p>
+          <div class="branch-search">
+            <div class="field"><label for="v-postcode">Site postcode</label><input type="text" id="v-postcode" autocomplete="postal-code"><p class="field-error" hidden>Enter a UK postcode, like WF8 1AA</p></div>
+            <button type="button" class="btn btn-secondary" id="v-find">Find centres</button>
+          </div>
+          <div id="v-sites" aria-live="polite"></div>
+          <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Shows the three nearest centres that offer this kind of work. Repairs only list sites with a repair workshop.</p>
+          <div class="step-nav"><button type="button" class="btn btn-secondary" data-back>Back</button><button type="button" class="btn" id="v-next-2">Continue</button></div>
+        </section>
+
+        <section class="step-panel" data-step="3" hidden>
+          <h2>When suits you?</h2>
+          <div id="v-when-urgent" hidden><p>We'll treat this as urgent. The centre will call you back to arrange an engineer [within 30 minutes, to confirm].</p></div>
+          <div id="v-when-dates">
+            <div class="date-strip" id="v-dates"></div>
+            <p class="field-error" id="v-date-error" hidden>Choose a date</p>
+            <fieldset><legend>Time of day</legend>
+              <label class="check" for="v-am"><input type="radio" name="v-slot" id="v-am" value="Morning" checked> Morning (8am to 12pm)</label>
+              <label class="check" for="v-pm"><input type="radio" name="v-slot" id="v-pm" value="Afternoon"> Afternoon (12pm to 5pm)</label>
+            </fieldset>
+          </div>
+          <div class="step-nav"><button type="button" class="btn btn-secondary" data-back>Back</button><button type="button" class="btn" id="v-next-3">Continue</button></div>
+        </section>
+
+        <section class="step-panel" data-step="4" hidden>
+          <h2>Your details</h2>
+          <form id="v-form" novalidate>
+            <div class="error-summary" role="alert" hidden><b>Some details are missing.</b> Check the fields marked below.</div>
+            <div class="form-grid">
+              <div class="field"><label for="v-name">Name</label><input type="text" id="v-name" autocomplete="name" required><p class="field-error" hidden>Enter your name</p></div>
+              <div class="field"><label for="v-company">Company</label><input type="text" id="v-company" autocomplete="organization" required><p class="field-error" hidden>Enter your company</p></div>
+              <div class="field"><label for="v-phone">Phone</label><input type="tel" id="v-phone" autocomplete="tel" required><p class="field-error" hidden>Enter a phone number the engineer can call</p></div>
+              <div class="field"><label for="v-email">Email</label><input type="email" id="v-email" autocomplete="email" required><p class="field-error" hidden>Enter an email address like name@company.co.uk</p></div>
+              <div class="field full"><label for="v-equip">Equipment <span class="muted">(optional)</span></label><input type="text" id="v-equip"><p class="field-hint">Make and model, for example "Volvo EC220 excavator".</p></div>
+              <div class="field full"><label for="v-desc">What's the problem?</label><textarea id="v-desc" rows="4" required></textarea><p class="field-error" hidden>Describe the problem or the work needed</p></div>
+              <div class="field full"><label for="v-photos">Photos <span class="muted">(optional)</span></label><input type="file" id="v-photos" multiple accept="image/*"><ul class="file-list" id="v-photo-list"></ul></div>
+            </div>
+            <div class="step-nav"><button type="button" class="btn btn-secondary" data-back>Back</button><button type="submit" class="btn">Book visit</button></div>
+          </form>
+        </section>
+      </div>
+
+      <div id="v-done" class="confirm-box" hidden>
+        <div class="tick" aria-hidden="true">✓</div>
+        <h2>Booked: <span id="vd-ref"></span></h2>
+        <dl class="kv" style="max-width:28rem;margin:1rem auto"><dt>Visit</dt><dd id="vd-type"></dd><dt>Centre</dt><dd id="vd-site"></dd><dt>When</dt><dd id="vd-when"></dd></dl>
+        <p>The centre will confirm the engineer and time by email and text.</p>
+      </div>
+      <p class="wf-note query" data-note="2"><span class="wf-note-label">Question for Flowtech</span>Do centres keep a shared diary that bookings could go into, or would a booking arrive as a request for the centre to confirm?</p>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+  <script src="~/js/data.js"></script>
+  <script src="~/js/wireframe.js"></script>
+</body>
+</html>
