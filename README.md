@@ -1,9 +1,15 @@
-# Flowtech — website improvement prototypes (V1)
+# Flowtech — website improvement prototypes (V2)
 
-Five clickable greyscale prototypes for improvements to flowtech.co.uk, prepared by ClerksWell
-following the phase 1 review (1 October 2026). They are deliberately greyscale so review stays on
-structure and behaviour. The Flowtech design layer will go in `src/css/theme.css` only (phase 3);
-`src/css/flowtech-tokens.css` holds the measured brand tokens ready for it.
+Five clickable prototypes for improvements to flowtech.co.uk, prepared by ClerksWell
+following the phase 1 review (1 October 2026). The Flowtech design layer (Inter, Flowtech blue and sky,
+square 52px controls, the blue footer and black utility strips) lives entirely in `src/css/theme.css`;
+remove that file to get the greyscale prototypes back. `src/css/flowtech-tokens.css` holds the measured tokens.
+
+Product shots and photography are Flowtech's own, loaded directly from flowtech.co.uk's image hosts
+(ImageKit for Pimberly product images, payload.flowtech.co.uk for CMS photos) by `src/js/photos.js`,
+which maps images to products, case studies, services, sectors and branches. Where an image can't load,
+an illustrated placeholder in the brand blues shows instead. Photography © Flowtech; the repository and
+site are public, so treat them accordingly. Maps, the hose diagram and logos for group brands stay drawn.
 
 ## View
 Live: https://hrhlescargotleo.github.io/Flowtech-Roadmap/
@@ -37,6 +43,6 @@ phone are real. Branch stock, lead times, quotes, hose options and prices, cours
 mapping and anything in [brackets] are samples.
 
 ## Status
-V1, greyscale prototypes for internal review. Flowtech's own header and footer are replaced by a
+V2, designed prototypes for internal review (V1 was greyscale). Flowtech's own header and footer are replaced by a
 prototype navigator. Notes are off by default; switch "Notes on" in the top bar to show what each
 prototype proposes and why, plus in-page annotations (yellow: behaviour, red: questions for Flowtech).
